@@ -1,3 +1,14 @@
+# defining your own function
+def calculateDistance(start, end):
+    # assume start and end are tuples of dimension 2
+    x1 = start[0]
+    x2 = end[0]
+    y1 = start[1]
+    y2 = end[1]
+    distance = abs(x2-x1) + abs(y2-y1)
+    return distance
+
+
 coordinates = [(1,1), (1,5), (2,6), (4,6), (5,3) ]
 sum = 0
 print (coordinates[0])
@@ -12,11 +23,7 @@ while index < length-1:
     # do the math
     start = coordinates[index]
     end = coordinates[index + 1] # careful with indexes at the end
-    x1 = start[0]
-    x2 = end[0]
-    y1 = start[1]
-    y2 = end[1]
-    distance = abs(x2-x1) + abs(y2-y1)
+    distance = calculateDistance(start,end)   
     print("Distance between ", start, " and ", end, " is ", distance)
     sum = sum + distance
     # move on to the next index
@@ -30,10 +37,6 @@ end = coordinates[0]
 start = coordinates[length-1] # last
 # the following also works
 # start = coordinates[-1] # last
-x1 = start[0]
-x2 = end[0]
-y1 = start[1]
-y2 = end[1]
-distance = abs(x2-x1) + abs(y2-y1)
+distance = calculateDistance(start,end)   
 sum = sum + distance
 print("Total distance is ", sum)
